@@ -9,10 +9,13 @@ class BankDetails{
         $this -> balance = $initialBalance;
     }
 
+
     public function deposit($amount) {
+        echo "The deposited amount is " .$amount."<br>";
+
         if($amount > 0) {
             $this -> balance += $amount;
-            echo "The current balance is :".$this -> balance;
+            echo "The current balance after deposit is :".$this -> balance."<br>";
         }
 
         else {
@@ -21,9 +24,11 @@ class BankDetails{
     }
 
     public function withdraw($amount) {
+        echo "The withdrawl amount is " .$amount."<br>";
+
         if($amount > 0 && $this -> balance >= $amount) {
             $this -> balance -= $amount;
-            echo "The current balance is :".$this -> balance;
+            echo "The current balance after withdraw is :".$this -> balance."<br>";
         }
 
         else {
@@ -40,8 +45,11 @@ class BankDetails{
     }
 }
 
+
 //Creating the first object for class (BankDetails)
 $customer = new BankDetails("123445",20000);
+
+echo "The initial balance in your A/C is: ".$customer->getBalance();
 
 //Accessing the deposit methods from class by using its objects
 $customer->deposit(5000);
@@ -51,9 +59,5 @@ $customer->withdraw(3000);
 
 //At last displaying the current a/c balance after deposit and withdraw from Account
 echo "Your current A/C Balance is : ". $customer->getBalance()."\n"; 
-
-
-
-
 
 ?>
